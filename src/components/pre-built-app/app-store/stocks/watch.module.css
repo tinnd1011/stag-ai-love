@@ -1,0 +1,194 @@
+/* MarketAlerts.module.css */
+.container {
+  min-height: 100vh;
+  background: #1a0f2e;
+  padding: 1.5rem;
+  color: white;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #d8b4fe;
+  font-family: serif;
+}
+
+.brewingStation {
+  position: relative;
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.potionRow {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.potionContainer {
+  position: relative;
+}
+
+.potion {
+  width: 4rem;
+  height: 6rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.potion:hover {
+  transform: scale(1.05);
+}
+
+.potionActive {
+  transform: scale(1.1);
+}
+
+.potionLabel {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  color: #d8b4fe;
+}
+
+.liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.bubble1, .bubble2, .bubble3 {
+  position: absolute;
+  bottom: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.bubble1 { left: 25%; animation: bubble1 2s infinite; }
+.bubble2 { left: 50%; animation: bubble2 2s infinite 0.3s; }
+.bubble3 { left: 75%; animation: bubble3 2s infinite 0.6s; }
+
+.brewDetails {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.ingredientTag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 9999px;
+  margin: 0.25rem;
+  font-size: 0.875rem;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.progressBar {
+  width: 16rem;
+  height: 0.5rem;
+  background: rgba(147, 51, 234, 0.2);
+  border-radius: 9999px;
+  margin: 1rem auto;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #a855f7;
+  transition: width 0.3s ease;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.eventCard {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.alertLog {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.alertItem {
+  padding: 0.5rem;
+  background: rgba(147, 51, 234, 0.2);
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes bubble1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+  50% { transform: translate(-5px, -20px) scale(1.2); opacity: 1; }
+}
+
+@keyframes bubble2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+  50% { transform: translate(5px, -15px) scale(1.2); opacity: 1; }
+}
+
+@keyframes bubble3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+  50% { transform: translate(-3px, -25px) scale(1.2); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Potion color variants */
+.potionPrice {
+  background: linear-gradient(to bottom, rgba(16, 185, 129, 0.5), rgba(6, 95, 70, 0.5));
+}
+
+.potionVolume {
+  background: linear-gradient(to bottom, rgba(139, 92, 246, 0.5), rgba(91, 33, 182, 0.5));
+}
+
+.potionTrend {
+  background: linear-gradient(to bottom, rgba(59, 130, 246, 0.5), rgba(30, 64, 175, 0.5));
+}
+
+.potionVolatility {
+  background: linear-gradient(to bottom, rgba(251, 191, 36, 0.5), rgba(146, 64, 14, 0.5));
+}
+
+.liquidPrice { background: rgba(16, 185, 129, 0.5); }
+.liquidVolume { background: rgba(139, 92, 246, 0.5); }
+.liquidTrend { background: rgba(59, 130, 246, 0.5); }
+.liquidVolatility { background: rgba(251, 191, 36, 0.5); }
+
+/* Urgency indicators */
+.urgencyHigh { animation: pulse 2s infinite; }
+.urgencyMedium { background: rgba(251, 191, 36, 0.2); }
+.urgencyLow { background: rgba(16, 185, 129, 0.2); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -1,0 +1,197 @@
+/* DungeonQuest.module.css */
+.container {
+  width: 700px;
+  height: 700px;
+  background-color: rgb(17, 24, 39);
+  color: white;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.mainContainer {
+  border: 2px solid rgb(245, 158, 11);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(to right, rgb(245, 158, 11), rgb(217, 119, 6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  border: 1px solid rgb(245, 158, 11);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.roomViewer {
+  height: 200px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.roomContent {
+  position: relative;
+  z-index: 1;
+}
+
+.navigationButtons {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.navButton {
+  background-color: rgba(245, 158, 11, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: rgba(245, 158, 11, 0.4);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.battleLog {
+  height: 150px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.exploreButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgb(245, 158, 11);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+}
+
+.exploreButton:hover:not(:disabled) {
+  background-color: rgb(217, 119, 6);
+}
+
+.exploreButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tokenGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.tokenCard {
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.tokenCard:hover {
+  transform: translateY(-2px);
+  border-color: rgb(245, 158, 11);
+}
+
+.tokenCardSelected {
+  border-color: rgb(245, 158, 11);
+  background-color: rgba(245, 158, 11, 0.2);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.takingDamage {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Scrollbar Styles */
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.5);
+  border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.7);
+}
+
+.text-easy {
+  color: rgb(34, 197, 94);
+}
+
+.text-medium {
+  color: rgb(234, 179, 8);
+}
+
+.text-hard {
+  color: rgb(239, 68, 68);
+}

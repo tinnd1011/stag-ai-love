@@ -1,0 +1,123 @@
+<iframe class="w-full h-[calc(100%-50px)] svelte-1oscvsa" title="MetroPulse" srcdoc="
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Explorer</title>
+    <link rel=&quot;stylesheet&quot; href=&quot;./rpgui.css&quot; />
+    <script src=&quot;https://maps.googleapis.com/maps/api/js?key=AIzaSyAcYS7Qjwa1CxL1LettOIKGYoMOoJYsqEk&quot;></script>
+    <script src=&quot;./rpgui.js&quot; defer></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        #game-container {
+            display: flex;
+            height: 100%;
+        }
+        #map {
+            width: 70%;
+            height: 100%;
+        }
+        #sidebar {
+            width: 30%;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.7);
+        }
+        #city-input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #score {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id=&quot;game-container&quot;>
+        <div id=&quot;map&quot;></div>
+        <div id=&quot;sidebar&quot;>
+            <div id=&quot;score&quot;>Score: 0</div>
+            <input id=&quot;city-input&quot; class=&quot;rpgui-container framed&quot; type=&quot;text&quot; placeholder=&quot;Guess the City&quot;>
+            <button id=&quot;guess-btn&quot; class=&quot;rpgui-button&quot;>Guess</button>
+            <div id=&quot;result&quot;></div>
+            <div id=&quot;city-info&quot;></div>
+        </div>
+    </div>
+
+    <script>
+        let currentCity = null;
+        let score = 0;
+        let cities = [];
+
+        // Initialize map
+        const panorama = new google.maps.StreetViewPanorama(
+            document.getElementById(&quot;map&quot;),
+            {
+                position: {lat: 0, lng: 0},
+                pov: {heading: 270, pitch: 0},
+                addressControl: false,
+                showRoadLabels: false,
+                linksControl: false
+            }
+        );
+
+        // Fetch random cities
+        async function fetchCities() {
+            const response = await fetch('/api/custom/randomcities?limit=20');
+            cities = await response.json();
+            selectRandomCity();
+        }
+
+        // Select and set a random city
+        function selectRandomCity() {
+            if (cities.length > 0) {
+                const cityIndex = Math.floor(Math.random() * cities.length);
+                currentCity = cities[cityIndex];
+                
+                // Slightly randomize location
+                const lat = currentCity.lat + (Math.random() - 0.5) * 0.01;
+                const lon = currentCity.lon + (Math.random() - 0.5) * 0.01;
+
+                panorama.setPosition(new google.maps.LatLng(lat, lon));
+            }
+        }
+
+        // Handle guess
+        document.getElementById('guess-btn').addEventListener('click', () => {
+            const guessInput = document.getElementById('city-input');
+            const resultDiv = document.getElementById('result');
+            const scoreDiv = document.getElementById('score');
+
+            const userGuess = guessInput.value.trim().toLowerCase();
+            const correctCity = currentCity.city.toLowerCase();
+
+            if (userGuess === correctCity) {
+                score += 100;
+                resultDiv.innerHTML = `<span style=&quot;color:green;&quot;>Correct! +100 points</span>`;
+            } else {
+                resultDiv.innerHTML = `<span style=&quot;color:red;&quot;>Wrong! Correct city was ${currentCity.city}</span>`;
+            }
+
+            scoreDiv.innerHTML = `Score: ${score}`;
+            guessInput.value = '';
+
+            // Select next city
+            selectRandomCity();
+        });
+
+        // Initialize game
+        fetchCities();
+    </script>
+</body>
+</html>
+" id="app-content-30"></iframe>
