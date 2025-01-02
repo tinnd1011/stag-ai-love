@@ -1,4 +1,5 @@
 export const CONTRACTS = {
   MockToken: "0x0f48E776a4D983C0dDDF4C0c946D66e3786F134f",
   MockAddress: "0xeb1F3919Cf572D31d5bc0866EDC421907435fEfE"
+  
 };
