@@ -1,0 +1,130 @@
+/* TokenForge.module.css */
+.container {
+  width: 700px;
+  height: 700px;
+  background-color: rgb(17, 24, 39);
+  color: white;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.mainContainer {
+  border: 2px solid rgb(59, 130, 246);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(to right, rgb(59, 130, 246), rgb(37, 99, 235));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  border: 1px solid rgb(59, 130, 246);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.tierButton {
+  padding: 0.5rem 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgb(59, 130, 246);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.tierButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tierButtonActive {
+  background-color: rgb(59, 130, 246);
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  background-color: rgb(59, 130, 246);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.forgeButton {
+  padding: 0.5rem 1rem;
+  background-color: rgb(59, 130, 246);
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+  flex: 2;
+}
+
+.forgeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tokenGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.tokenCard {
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Scrollbar Styles */
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}

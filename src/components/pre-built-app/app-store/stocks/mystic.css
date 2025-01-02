@@ -1,0 +1,157 @@
+/* MysticMetrics.css */
+.mystic-container {
+  min-height: 100vh;
+  background: #1a0f2e;
+  padding: 1.5rem;
+  color: white;
+}
+
+.mystic-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #93c5fd;
+  font-family: serif;
+  text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+}
+
+.crystal-chamber {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.magic-circle {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(147, 197, 253, 0.1);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.rune {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: rgba(147, 197, 253, 0.2);
+  border-radius: 50%;
+}
+
+.chart-container {
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, rgba(37, 99, 235, 0.3), transparent);
+  position: relative;
+  transition: height 0.5s ease;
+  border-radius: 4px;
+}
+
+.chart-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(147, 197, 253, 0.5);
+  box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #93c5fd;
+  margin: 0.5rem 0;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: rgba(147, 197, 253, 0.8);
+}
+
+.spell-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.spell-button {
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: #93c5fd;
+  transition: all 0.3s ease;
+}
+
+.spell-button:hover {
+  background: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.spell-button.active {
+  background: rgba(37, 99, 235, 0.4);
+  border-color: rgba(147, 197, 253, 0.5);
+  box-shadow: 0 0 15px rgba(147, 197, 253, 0.3);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.magical-sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #93c5fd;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
